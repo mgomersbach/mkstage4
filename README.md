@@ -56,6 +56,7 @@ Command line arguments:
   -s: makes tarball of current system.
   -k: separately save current kernel modules and src (smaller & save decompression time).
   -t: makes tarball of system located at the <target-mountpoint>.
+  -a: specify archive format (default bzip2).
   -h: displays help message.
 ```
 
