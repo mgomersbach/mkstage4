@@ -8,7 +8,7 @@ fi
 
 # get available compression types
 declare -A COMPRESS_TYPES
-export COMPRESS_TYPES=(
+COMPRESS_TYPES=(
 	["bz2"]="bzip2 pbzip2 lbzip2"
 	["gz"]="gz pigz"
 	["lrz"]="lrzip"
@@ -55,11 +55,11 @@ USAGE="usage:\n\
 	-s: makes tarball of current system.\n\
 	-k: separately save current kernel modules and src (smaller & save decompression time).\n\
 	-t: makes tarball of system located at the <target-mountpoint>.\n\
-	-a: specify archive format (default bzip2).\n\
+	-C: specify tar compression (available: ${!COMPRESS_AVAILABLE[*]}).\n\
 	-h: displays help message."
 
 # reads options:
-while getopts ":t:a:e:i:skqcblh" flag
+while getopts ":t:C:e:i:skqcblh" flag
 do
 	case "$flag" in
 		t)
@@ -68,7 +68,7 @@ do
 		s)
 			TARGET="/"
 			;;
-		a)
+		C)
 			COMPRESS_TYPE="$OPTARG"
 			;;
 		q)
