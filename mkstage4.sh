@@ -111,7 +111,7 @@ if [ -z "$TARGET" ]; then
 fi
 
 # make sure TARGET path ends with slash
-if [[ "$TARGET" != */ ]]; then
+if [[ $TARGET != */ ]]; then
 	TARGET="${TARGET}/"
 fi
 
@@ -222,7 +222,7 @@ fi
 
 # Compression options
 COMP_OPTIONS=("${COMPRESS_AVAILABLE[$COMPRESS_TYPE]}")
-if [[ "${COMPRESS_AVAILABLE[$COMPRESS_TYPE]}" == *"/xz" ]]; then
+if [[ ${COMPRESS_AVAILABLE[$COMPRESS_TYPE]} == *"/xz" ]]; then
 	COMP_OPTIONS+=("-T0")
 fi
 
@@ -236,7 +236,7 @@ TAR_OPTIONS=(
 )
 
 # if not in quiet mode, this message will be displayed:
-if [[ "$AGREE" != 'yes' ]]; then
+if [[ $AGREE != 'yes' ]]; then
 	echo "Are you sure that you want to make a stage 4 tarball of the system"
 	echo "located under the following directory?"
 	echo "$TARGET"
